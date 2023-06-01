@@ -18,7 +18,7 @@ export const ImagesCardComics:FC<props> = ({ image, relatedImages }) => {
           height={386}
           alt='Tee'
           src={imageSrc}
-          className='h-72 w-full rounded-xl object-cover lg:h-[940px]'
+          className='h-[600px] w-full rounded-xl object-cover lg:h-[1240px]'
         />
 
         <div className='absolute bottom-4 left-1/2 inline-flex -translate-x-1/2 items-center rounded-full bg-black/75 px-3 py-1.5 text-white'>

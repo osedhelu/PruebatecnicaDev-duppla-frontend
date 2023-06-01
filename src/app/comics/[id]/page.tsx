@@ -11,9 +11,8 @@ const findOneComics = (id: string) => {
 async function ComicsId ({ params }:any) {
   const { id } = params
   const data = await findOneComics(id)
-  console.log('TCL: data', data)
   return (
-    <CardItemComics description={data.description} image={data.image} title={data.title} likeCount='Like' relatedImages={data.images} />
+    <CardItemComics {...data} />
   )
 }
 
