@@ -11,7 +11,7 @@ async function Comics () {
       <section className='bg-blueGray-100'>
         <div className='container px-4 mx-auto'>
           <h2 className='mb-14 xl:mb-24 text-9xl xl:text-10xl font-heading font-medium text-center'>
-            Products
+            Comics Marvel
           </h2>
           <div className='flex items-center'>
             <a

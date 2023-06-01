@@ -1,53 +1,68 @@
-import Image from 'next/image'
 import React, { FC } from 'react'
+import { ImagesCardComics } from './ImagesCardComics'
 
 interface props {
-    image: string, relatedImages: string[], title: string, description: string, likeCount: string
+  image: string
+  relatedImages: string[]
+  title: string
+  description: string
+  likeCount: string
 }
-export const CardItemComics: FC<props> = ({ image, relatedImages, title, description, likeCount }) => {
+export const CardItemComics: FC<props> = ({
+  image,
+  relatedImages,
+  title,
+  description,
+  likeCount
+}) => {
   return (
-    <div className='flex flex-col items-center'>
-      <div className='w-full sm:w-1/2 xl:w-1/4 px-3 mb-14 xl:mb-0'>
-        <div className='absolute top-0 left-0 w-full h-full object-cover rounded-3xl'>
-          <Image
-            className='object-cover object-center absolute top-0 left-0 w-full h-full'
-            src={image}
-            width={0}
-            height={0}
-            sizes='100vw'
-            alt=''
-          />
+    <section>
+      <div className='relative mx-auto max-w-screen-xl px-4 py-8'>
+        <div>
+          <h1 className='text-2xl font-bold lg:text-3xl'>{title}</h1>
+
+          <p className='mt-1 text-sm text-gray-500'>SKU: #012345</p>
         </div>
-        <div className='absolute top-0 left-0 w-full h-full flex items-center'>
-          {relatedImages.map((relatedImage, index) => (
-            <Image
-              key={index}
-              src={relatedImage}
-              width={400}
-              height={900}
-              sizes='100vw'
-              alt={`Related ${index + 1}`}
-              className='w-full h-full '
-            />
-          ))}
+
+        <div className='grid gap-8 lg:grid-cols-4 lg:items-start'>
+          <div className='lg:col-span-3'>
+            <ImagesCardComics image={image} relatedImages={relatedImages} />
+
+          </div>
+
+          <div className='lg:sticky lg:top-0'>
+            <form className='space-y-4 lg:pt-8'>
+              <div className='rounded border bg-white p-4'>
+                <p className='text-sm text-black'>
+                  <span className='block'>
+                    {description}
+                  </span>
+
+                </p>
+              </div>
+
+              <div>
+                <p className='text-xl font-bold'>$19.99</p>
+              </div>
+
+              <button
+                type='submit'
+                className='w-full rounded bg-red-700 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white'
+              >
+                Me gusta
+              </button>
+
+              <button
+                type='button'
+                className='w-full rounded border border-gray-300 bg-blue-800 px-6 py-3 text-sm font-bold uppercase tracking-wide'
+              >
+                compartir
+              </button>
+            </form>
+          </div>
+
         </div>
       </div>
-      <div className='absolute top-0 left-0 w-full h-full flex items-center'>
-        <div className='w-full'>
-          <div className='mb-4 text-xl leading-8 font-heading font-medium hover:underline'>
-            {title}
-          </div>
-          <div className='text-xl text-blue-500 font-heading font-medium tracking-tighter'>
-            <span className='text-base pr-2'>{description}</span>
-          </div>
-        </div>
-        <div className='w-full flex items-center justify-between'>
-          <span className='text-blue-500 font-medium'>{likeCount}</span>
-          <button className='bg-blue-500 text-white font-medium px-3 py-1 rounded-sm'>
-            Me gusta
-          </button>
-        </div>
-      </div>
-    </div>
+    </section>
   )
 }
